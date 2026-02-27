@@ -5,62 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial;
-            background: #0f172a;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
-            text-align: center;
+            margin: 0;
             padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #facc15;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #38bdf8;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
         .card {
             background: #1e293b;
             padding: 20px;
             border-radius: 12px;
-            margin: 15px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         .wallet {
             color: #38bdf8;
-            font-size: 14px;
+            font-size: 13px;
             word-break: break-all;
+            margin-bottom: 10px;
         }
         button {
-            padding: 10px 20px;
+            padding: 10px 15px;
             border: none;
             border-radius: 8px;
-            background: orange;
+            background: #facc15;
             color: black;
             font-weight: bold;
             cursor: pointer;
+            margin: 5px 0;
+            width: 100%;
+        }
+        .small-bar {
+            background: #334155;
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .fill-bar {
+            background: #facc15;
+            height: 100%;
+            border-radius: 4px;
+            width: 70%; /* example data */
         }
     </style>
 </head>
 <body>
 
-<h1>OP_NET Activity & Reward Tracker</h1>
+<header>
+    <h1>OP_NET Activity & Reward Tracker</h1>
+</header>
 
-<div class="card">
-    <h3>Wallet Connected (Read-Only)</h3>
-    <div class="wallet">
-        opt1p8skzcm0lemvjwrwqrat499awkd9mjxv4yvew4de6q7jm3q8eftfqvaeyja
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Dashboard</a>
+    <a href="#">Wallet</a>
+    <a href="#">Settings</a>
+</nav>
+
+<div class="dashboard">
+
+    <div class="card">
+        <h3>Wallet Connected (Analytics Mode)</h3>
+        <div class="wallet">
+            opt1p8skzcm0lemvjwrwqrat499awkd9mjxv4yvew4de6q7jm3q8eftfqvaeyja
+        </div>
+        <button>Connect Wallet</button>
     </div>
-</div>
 
-<div class="card">
-    <h3>Daily Transactions</h3>
-    <p>147 Transactions (Last 7 Days)</p>
-</div>
+    <div class="card">
+        <h3>Daily Transactions</h3>
+        <p>147 Transactions (Last 7 Days)</p>
+        <div class="small-bar">
+            <div class="fill-bar"></div>
+        </div>
+    </div>
 
-<div class="card">
-    <h3>Estimated Points</h3>
-    <p>2,845 OP_NET Points</p>
-</div>
+    <div class="card">
+        <h3>Estimated Points</h3>
+        <p>2,845 OP_NET Points</p>
+        <div class="small-bar">
+            <div class="fill-bar" style="width: 60%;"></div>
+        </div>
+    </div>
 
-<div class="card">
-    <h3>Airdrop Eligibility</h3>
-    <p>Status: Highly Active Wallet 🟢</p>
-</div>
+    <div class="card">
+        <h3>Airdrop Eligibility</h3>
+        <p>Status: Highly Active Wallet 🟢</p>
+        <div class="small-bar">
+            <div class="fill-bar" style="width: 90%;"></div>
+        </div>
+    </div>
 
-<button>Check Rewards</button>
+    <div class="card">
+        <h3>Rewards</h3>
+        <button>Check Rewards</button>
+        <button>Refresh Data</button>
+        <button>Download Report</button>
+    </div>
+
+</div>
 
 </body>
 </html>
